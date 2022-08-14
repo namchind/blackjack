@@ -30,8 +30,19 @@ public class TestStrategyCautiousPlay {
     @Test
     public void testStandWhenAllPlayersBusted(){
         List<List<Card>> hands = new ArrayList<>();
-        hands.add(Arrays.asList(new Card(Rank.FOUR, Suit.CLUBS), new Card(Rank.FOUR, Suit.DIAMONDS), new Card(Rank.FOUR, Suit.HEARTS)));
-        hands.add(Collections.singletonList(new Card(Rank.FIVE, Suit.CLUBS)));
+        hands.add(Collections.singletonList(new Card(Rank.FOUR, Suit.CLUBS)));
+        hands.add(Arrays.asList(
+                new Card(Rank.TEN, Suit.CLUBS),
+                new Card(Rank.JACK, Suit.CLUBS),
+                new Card(Rank.QUEEN, Suit.CLUBS)));
+        hands.add(Arrays.asList(
+                new Card(Rank.TEN, Suit.DIAMONDS),
+                new Card(Rank.JACK, Suit.DIAMONDS),
+                new Card(Rank.QUEEN, Suit.DIAMONDS)));
+        hands.add(Arrays.asList(
+                new Card(Rank.TEN, Suit.HEARTS),
+                new Card(Rank.JACK, Suit.HEARTS),
+                new Card(Rank.QUEEN, Suit.HEARTS)));
         boolean actual = classUnderTest.shouldStand(hands);
         assertTrue(actual);
     }
